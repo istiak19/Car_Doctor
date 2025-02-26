@@ -31,11 +31,13 @@ const Banner = () => {
             modules={[Autoplay, Pagination]}
             className="mySwiper"
         >
-            {images.map((imgSrc, index) => (
-                <SwiperSlide key={index}>
-                    <Slide image={imgSrc} />
-                </SwiperSlide>
-            ))}
+            {
+                images.map((imgSrc, index) => (
+                    <SwiperSlide key={index}>
+                        <Slide image={imgSrc} />
+                    </SwiperSlide>
+                ))
+            }
         </Swiper>
     );
 };
