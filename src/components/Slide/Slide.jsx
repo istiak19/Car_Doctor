@@ -7,9 +7,8 @@ const Slide = ({ image }) => {
             <Image
                 src={image}
                 alt="Background"
-                layout="fill"
-                objectFit="cover"
-                className="absolute inset-0 w-full h-full"
+                fill
+                className="object-cover w-full h-full"
                 priority
             />
             <div className="absolute inset-0 bg-black bg-opacity-70"></div>

@@ -1,7 +1,6 @@
-import dbConnect, { collectionNames } from "@/lib/dbConnect"
-import { NextResponse } from 'next/server';
+import dbConnect, { collectionNames } from "@/lib/dbConnect";
 
 export async function GET() {
     const data = await dbConnect(collectionNames.test_services).find().toArray();
-    return NextResponse.json(data );
+    return Response.json(data);
 }
