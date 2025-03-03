@@ -45,6 +45,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
                 <a className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</a>
             </div>
         </div>
