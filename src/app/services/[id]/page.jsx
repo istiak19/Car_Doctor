@@ -33,7 +33,6 @@ const ServiceDetails = async ({ params }) => {
                     <h1 className="mb-3 text-2xl md:text-4xl font-bold">Service Details</h1>
                 </div>
             </div>
-
             {/* Main Content */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
                 {/* Left Section - Service Details */}
@@ -49,15 +48,17 @@ const ServiceDetails = async ({ params }) => {
                         <h1 className="font-bold text-2xl md:text-3xl">{data?.title}</h1>
                         <p className="text-gray-500 text-justify">{data?.description}</p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {data?.facility?.map((f, idx) => (
-                                <div
-                                    className="bg-red-200 p-6 md:p-8 space-y-2 rounded-md border-t-4 border-t-red-400 shadow-md hover:shadow-xl"
-                                    key={idx}
-                                >
-                                    <h2 className="text-lg md:text-xl font-bold">{f?.name}</h2>
-                                    <p className="text-gray-600 text-justify">{f?.details}</p>
-                                </div>
-                            ))}
+                            {
+                                data?.facility?.map((f, idx) => (
+                                    <div
+                                        className="bg-red-200 p-6 md:p-8 space-y-2 rounded-md border-t-4 border-t-red-400 shadow-md hover:shadow-xl"
+                                        key={idx}
+                                    >
+                                        <h2 className="text-lg md:text-xl font-bold">{f?.name}</h2>
+                                        <p className="text-gray-600 text-justify">{f?.details}</p>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
@@ -66,16 +67,18 @@ const ServiceDetails = async ({ params }) => {
                     {/* Services List */}
                     <div className="rounded-lg bg-red-200 p-5">
                         <h1 className="font-bold text-xl md:text-2xl">Services</h1>
-                        {services?.map((service) => (
-                            <Link key={service._id} href={`/services/${service?._id}`}>
-                                <div className="bg-white/50 flex p-3 rounded-md mt-2 justify-between items-center hover:bg-red-500 hover:text-white *:font-semibold">
-                                    <h2>{service?.title}</h2>
-                                    <p>
-                                        <FaArrowRightLong />
-                                    </p>
-                                </div>
-                            </Link>
-                        ))}
+                        {
+                            services?.map((service) => (
+                                <Link key={service._id} href={`/services/${service?._id}`}>
+                                    <div className="bg-white/50 flex p-3 rounded-md mt-2 justify-between items-center hover:bg-red-500 hover:text-white *:font-semibold">
+                                        <h2>{service?.title}</h2>
+                                        <p>
+                                            <FaArrowRightLong />
+                                        </p>
+                                    </div>
+                                </Link>
+                            ))
+                        }
                     </div>
                     {/* Download Section */}
                     <div className="bg-black p-6 rounded-lg mt-7">

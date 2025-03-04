@@ -48,7 +48,7 @@ const Login = () => {
                     />
                 </div>
                 <div className="w-full max-w-xl">
-                    <h2 className='mb-5 font-bold text-center text-3xl'>Sign Up</h2>
+                    <h2 className='mb-5 font-bold text-center text-3xl'>Sign In</h2>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                             <FormField
@@ -77,14 +77,14 @@ const Login = () => {
                                     </FormItem>
                                 )}
                             />
-                            <Button variant="custom" type="submit">Sign Up</Button>
+                            <Button variant="custom" type="submit">Sign In</Button>
                         </form>
                     </Form>
                     <p className='text-center py-5 font-medium'>Or Sign Up with</p>
                     <div>
                         Social login
                     </div>
-                    <p className='text-gray-600 text-xs text-center'>Already have an account? <span className='text-red-400 hover:underline'><Link href='/login'>Login</Link></span></p>
+                    <p className='text-gray-600 text-xs text-center'>Have an account? <span className='text-red-400 hover:underline'><Link href='/register'>Sign Up</Link></span></p>
                 </div>
             </div>
         </div>

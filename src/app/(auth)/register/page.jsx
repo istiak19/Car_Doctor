@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
+import { registerUser } from '@/app/actions/auth/registerUser';
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -33,8 +34,9 @@ const Register = () => {
         },
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log("Submitted Data:", data);
+        await registerUser(data);
     };
 
     return (
