@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import Link from 'next/link';
 import { registerUser } from '@/app/actions/auth/registerUser';
 import Swal from 'sweetalert2';
+import SocialLogin from '@/components/SocialLogin/SocialLogin';
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -112,8 +113,8 @@ const Register = () => {
                         </form>
                     </Form>
                     <p className='text-center py-5 font-medium'>Or Sign Up with</p>
-                    <div>
-                        Social login
+                    <div className='py-5'>
+                        <SocialLogin></SocialLogin>
                     </div>
                     <p className='text-gray-600 text-xs text-center'>Already have an account? <span className='text-red-400 hover:underline'><Link href='/login'>Login</Link></span></p>
                 </div>

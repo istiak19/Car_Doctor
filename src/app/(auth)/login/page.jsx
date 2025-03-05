@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import SocialLogin from '@/components/SocialLogin/SocialLogin';
 
 const formSchema = z.object({
     email: z.string().email({
@@ -102,8 +103,8 @@ const Login = () => {
                         </form>
                     </Form>
                     <p className='text-center py-5 font-medium'>Or Sign Up with</p>
-                    <div>
-                        Social login
+                    <div className='py-5'>
+                       <SocialLogin></SocialLogin>
                     </div>
                     <p className='text-gray-600 text-xs text-center'>Have an account? <span className='text-red-400 hover:underline'><Link href='/register'>Sign Up</Link></span></p>
                 </div>
