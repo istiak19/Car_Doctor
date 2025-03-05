@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
 import { registerUser } from '@/app/actions/auth/registerUser';
+import Swal from 'sweetalert2';
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -36,7 +37,19 @@ const Register = () => {
 
     const onSubmit = async (data) => {
         console.log("Submitted Data:", data);
-        await registerUser(data);
+        const response = await registerUser(data);
+        if (response.error) {
+            // alert("⚠️ " + response.error);
+        } else {
+            // alert("✅ Registration successful! User ID: " + response._id);
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "✅ Registration successful!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return (

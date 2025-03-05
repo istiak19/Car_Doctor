@@ -1,5 +1,6 @@
 "use client"
 import Image from 'next/image';
+import { signIn } from "next-auth/react"
 import loginPic from '../../../../public/assets/images/login/login.svg';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -10,6 +11,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
     email: z.string().email({
@@ -22,6 +24,7 @@ const formSchema = z.object({
 
 
 const Login = () => {
+    const router = useRouter();
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -30,8 +33,26 @@ const Login = () => {
         },
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log("Submitted Data:", data);
+        try {
+            const result = await signIn('credentials', {
+                redirect: false,
+                email: data.email,
+                password: data.password,
+            });
+
+            if (result?.error) {
+                console.log("Login Failed:", result.error);
+                return;
+            }
+
+            console.log("Login Successful:", result);
+            router.push('/');
+        }
+        catch (error) {
+            console.log("Error during login:", error);
+        }
     };
 
     return (
