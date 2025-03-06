@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here’s your **README.md** file in Markdown format:  
 
-## Getting Started
+```md
+# CarDoctor
 
-First, run the development server:
+CarDoctor is a web-based platform designed to help car owners diagnose, maintain, and repair their vehicles. The platform provides tools for identifying car issues, scheduling maintenance appointments, and connecting with certified mechanics for expert advice and service.
 
-```bash
+🚀 **Live Demo**: [CarDoctor](https://car-doctor-hazel.vercel.app/)
+
+## 📖 Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Dependencies](#dependencies)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 🛠 Installation
+
+To set up the project locally, follow these steps:
+
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/your-username/CarDoctor.git
+   cd CarDoctor
+   ```
+
+2. **Install dependencies**:
+   ```sh
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```sh
+   npm run dev
+   ```
+
+The application will be available at `http://localhost:3000/`.
+
+## 🚀 Usage
+
+- Diagnose vehicle issues using interactive tools.
+- Schedule maintenance appointments with certified mechanics.
+- Access expert advice for vehicle repairs.
+
+## ✨ Features
+
+- 🔍 **Car Issue Diagnosis** – Identify car problems with an AI-powered tool.
+- 📅 **Maintenance Scheduling** – Book appointments with certified mechanics.
+- 🛠 **Expert Consultation** – Get advice and guidance for vehicle repairs.
+- 🎨 **Modern UI** – Built with **Next.js**, **TailwindCSS**, and **Radix UI**.
+- 🔐 **Authentication** – Secure login and user management using **NextAuth**.
+
+## 📦 Dependencies
+
+This project uses the following technologies:
+
+- **Frontend**: [Next.js](https://nextjs.org/), [React](https://react.dev/)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/), [DaisyUI](https://daisyui.com/)
+- **State & Forms**: [React Hook Form](https://react-hook-form.com/), [Zod](https://zod.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/), [React Icons](https://react-icons.github.io/react-icons/)
+- **Authentication**: [NextAuth](https://next-auth.js.org/)
+- **Database**: [MongoDB](https://www.mongodb.com/)
+- **Notifications**: [SweetAlert2](https://sweetalert2.github.io/)
+
+## 👨‍💻 Development
+
+### Run in Development Mode
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for Production
+```sh
+npm run build
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Start the Production Server
+```sh
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📜 License
 
-## Learn More
+This project is licensed under the **MIT License**.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ by [Istiak Ahamed](https://github.com/istiak19)
+```
