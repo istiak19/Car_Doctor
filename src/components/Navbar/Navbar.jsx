@@ -1,15 +1,19 @@
+"use client";
 import Image from 'next/image';
 import logoPic from '../../../public/assets//logo.svg';
 import Link from 'next/link';
+import { useSession, signOut } from 'next-auth/react';
 
 const Navbar = () => {
+    const { data: session, status } = useSession();
+
     const links = <>
         <li><Link href='/'>Home</Link></li>
         <li><Link href='/about'>About</Link></li>
         <li><Link href='/services'>Services</Link></li>
         <li><Link href='/blog'>Blog</Link></li>
         <li><Link href='/contact'>Contact</Link></li>
-    </>
+    </>;
 
     return (
         <div className="navbar bg-gray-300 px-12 py-5">
@@ -36,7 +40,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link href='/' className="text-xl">
-                    <Image className='h-12 w-20' src={logoPic} alt='Website logo' />
+                    <Image
+                        src={logoPic}
+                        alt='Website logo'
+                        width={80}
+                        height={48}
+                    />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -45,7 +54,24 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
+                {
+                    status === 'authenticated' ? (
+                        <div className='flex justify-center items-center'>
+                            <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                                <Image
+                                    src={session?.user?.image || "/default-avatar.png"}
+                                    alt="User Avatar"
+                                    width={40}
+                                    height={40}
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <button onClick={() => signOut()} className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Logout</button>
+                        </div>
+                    ) : (
+                        <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
+                    )
+                }
                 <a className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</a>
             </div>
         </div>

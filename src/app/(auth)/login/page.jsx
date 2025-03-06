@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input"
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import SocialLogin from '@/components/SocialLogin/SocialLogin';
+import Swal from 'sweetalert2';
 
 const formSchema = z.object({
     email: z.string().email({
@@ -44,12 +45,21 @@ const Login = () => {
             });
 
             if (result?.error) {
-                console.log("Login Failed:", result.error);
+                // console.log("Login Failed:", result.error);
                 return;
             }
 
-            console.log("Login Successful:", result);
-            router.push('/');
+            if (result.status === 200) {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login Successful!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                console.log("Login Successful:", result);
+                router.push('/');
+            }
         }
         catch (error) {
             console.log("Error during login:", error);
@@ -104,7 +114,7 @@ const Login = () => {
                     </Form>
                     <p className='text-center py-5 font-medium'>Or Sign Up with</p>
                     <div className='py-5'>
-                       <SocialLogin></SocialLogin>
+                        <SocialLogin></SocialLogin>
                     </div>
                     <p className='text-gray-600 text-xs text-center'>Have an account? <span className='text-red-400 hover:underline'><Link href='/register'>Sign Up</Link></span></p>
                 </div>
