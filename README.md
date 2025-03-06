@@ -1,6 +1,3 @@
-Here’s your **README.md** file in Markdown format:  
-
-```md
 # CarDoctor
 
 CarDoctor is a web-based platform designed to help car owners diagnose, maintain, and repair their vehicles. The platform provides tools for identifying car issues, scheduling maintenance appointments, and connecting with certified mechanics for expert advice and service.
@@ -23,21 +20,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-username/CarDoctor.git
+   git clone https://github.com/istiak19/Car_Doctor
    cd CarDoctor
-   ```
-
-2. **Install dependencies**:
-   ```sh
-   npm install
-   ```
-
-3. **Run the development server**:
-   ```sh
-   npm run dev
-   ```
-
-The application will be available at `http://localhost:3000/`.
 
 ## 🚀 Usage
 
@@ -89,4 +73,3 @@ This project is licensed under the **MIT License**.
 ---
 
 Made with ❤️ by [Istiak Ahamed](https://github.com/istiak19)
-```
