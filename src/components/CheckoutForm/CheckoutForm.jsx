@@ -5,6 +5,7 @@ import DatePicker from "react-date-picker";
 import { useSession } from "next-auth/react";
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ data }) => {
     const { data: session } = useSession();
@@ -19,8 +20,23 @@ const CheckoutForm = ({ data }) => {
         const message = form.get("message");
         const price = data?.price;
         const serviceId = data?._id;
-        const checkInfo = { serviceId, customer: name, phone, email, message, date: value, price };
-        console.log(checkInfo);
+        const serviceName = data?.title;
+        const checkInfo = { serviceId, serviceName, customerName: name, phone, email, message, date: value, price };
+        const res = await fetch('http://localhost:3000/api/service', {
+            method: 'POST',
+            body: JSON.stringify(checkInfo)
+        });
+        const postedResponse = await res.json();
+        // console.log(postedResponse)
+        if (postedResponse.insertedId) {
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Your checkout successfully!",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     };
 
     return (
