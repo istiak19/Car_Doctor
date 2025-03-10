@@ -126,7 +126,7 @@ const ServiceDetails = async ({ params }) => {
                     </div>
                     <div className="space-y-4 mt-3">
                         <p className="font-bold text-3xl">Price $ {data?.price}</p>
-                        <button className="btn bg-red-600 w-full text-white font-semibold hover:bg-red-500">Proceed Checkout</button>
+                        <Link href={`/checkout/${data?._id}`} className="btn bg-red-600 w-full text-white font-semibold hover:bg-red-500">Proceed Checkout</Link>
                     </div>
                 </div>
             </div>
