@@ -18,13 +18,13 @@ const Checkout = async ({ params }) => {
             >
                 <div className="hero-overlay"></div>
                 <div className="hero-content text-white text-center py-10 md:py-16">
-                    <h1 className="mb-3 text-2xl md:text-4xl font-bold">Service Details</h1>
+                    <h1 className="mb-3 text-2xl md:text-4xl font-bold">Check Out : <span className="md:text-3xl text-gray-300">{data?.title}</span></h1>
                 </div>
             </div>
             {/* Main content */}
             <div className="bg-gray-200 p-8 rounded-lg shadow-md w-full max-w-7xl my-14">
                 {/* Form Inputs */}
-                <CheckoutForm></CheckoutForm>
+                <CheckoutForm data={data}></CheckoutForm>
             </div>
         </div>
     );
