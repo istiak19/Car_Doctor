@@ -1,74 +1,116 @@
-# CarDoctor
+# 🚗 CarDoctor  
 
-CarDoctor is a web-based platform designed to help car owners diagnose, maintain, and repair their vehicles. The platform provides tools for identifying car issues, scheduling maintenance appointments, and connecting with certified mechanics for expert advice and service.
+CarDoctor is a **web-based platform** designed to help car owners **diagnose, maintain, and repair** their vehicles efficiently. With AI-powered tools, maintenance scheduling, and expert consultations, CarDoctor simplifies vehicle care.  
 
-🚀 **Live Demo**: [CarDoctor](https://car-doctor-hazel.vercel.app/)
+🚀 **Live Demo**: [CarDoctor](https://car-doctor-hazel.vercel.app/)  
 
-## 📖 Table of Contents
+## 📖 Table of Contents  
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Dependencies](#dependencies)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
+- [Installation](#installation)  
+- [Usage](#usage)  
+- [Features](#features)  
+- [Dependencies](#dependencies)  
+- [Development](#development)  
+- [Contributing](#contributing)  
+- [License](#license)  
 
-## 🛠 Installation
+---  
 
-To set up the project locally, follow these steps:
+## 🛠 Installation  
 
-1. **Clone the repository**:
-   ```sh
-   git clone https://github.com/istiak19/Car_Doctor
-   cd CarDoctor
+To set up the project locally, follow these steps:  
 
-## 🚀 Usage
+1. **Clone the repository**:  
+   ```sh  
+   git clone https://github.com/istiak19/Car_Doctor.git  
+   cd CarDoctor  
+   ```  
+2. **Install dependencies**:  
+   ```sh  
+   npm install  
+   ```  
+3. **Start the development server**:  
+   ```sh  
+   npm run dev  
+   ```  
 
-- Diagnose vehicle issues using interactive tools.
-- Schedule maintenance appointments with certified mechanics.
-- Access expert advice for vehicle repairs.
+---
 
-## ✨ Features
+## 🚀 Usage  
 
-- 🔍 **Car Issue Diagnosis** – Identify car problems with an AI-powered tool.
-- 📅 **Maintenance Scheduling** – Book appointments with certified mechanics.
-- 🛠 **Expert Consultation** – Get advice and guidance for vehicle repairs.
-- 🎨 **Modern UI** – Built with **Next.js**, **TailwindCSS**, and **Radix UI**.
-- 🔐 **Authentication** – Secure login and user management using **NextAuth**.
+CarDoctor provides the following functionalities:  
 
-## 📦 Dependencies
+- **Diagnose** vehicle issues using an interactive AI-powered tool.  
+- **Schedule maintenance** appointments with certified mechanics.  
+- **Consult experts** for repair guidance and advice.  
 
-This project uses the following technologies:
+---
 
-- **Frontend**: [Next.js](https://nextjs.org/), [React](https://react.dev/)
-- **Styling**: [TailwindCSS](https://tailwindcss.com/), [DaisyUI](https://daisyui.com/)
-- **State & Forms**: [React Hook Form](https://react-hook-form.com/), [Zod](https://zod.dev/)
-- **Icons**: [Lucide React](https://lucide.dev/), [React Icons](https://react-icons.github.io/react-icons/)
-- **Authentication**: [NextAuth](https://next-auth.js.org/)
-- **Database**: [MongoDB](https://www.mongodb.com/)
-- **Notifications**: [SweetAlert2](https://sweetalert2.github.io/)
+## ✨ Features  
 
-## 👨‍💻 Development
+✅ **Car Issue Diagnosis** – AI-driven tool for identifying vehicle problems.  
+📅 **Maintenance Scheduling** – Book appointments with certified mechanics.  
+🛠 **Expert Consultation** – Get professional advice for vehicle repairs.  
+🎨 **Modern UI** – Built with **Next.js**, **TailwindCSS**, and **Radix UI**.  
+🔐 **Secure Authentication** – User login & management via **NextAuth**.  
 
-### Run in Development Mode
-```sh
-npm run dev
+---
+
+## 📦 Dependencies  
+
+This project is built using the following technologies:  
+
+### **Frontend**  
+- [Next.js](https://nextjs.org/) (v15.1.7)  
+- [React](https://react.dev/) (v19.0.0)  
+- [TailwindCSS](https://tailwindcss.com/) (v3.4.1)  
+- [DaisyUI](https://daisyui.com/) (v4.12.24)  
+
+### **State & Forms**  
+- [React Hook Form](https://react-hook-form.com/) (v7.54.2)  
+- [Zod](https://zod.dev/) (v3.24.2)  
+
+### **Authentication & Database**  
+- [NextAuth](https://next-auth.js.org/) (v4.24.11)  
+- [MongoDB](https://www.mongodb.com/) (v6.13.1)  
+
+### **UI & Icons**  
+- [Lucide React](https://lucide.dev/) (v0.477.0)  
+- [React Icons](https://react-icons.github.io/react-icons/) (v5.5.0)  
+
+### **Other Dependencies**  
+- [Framer Motion](https://www.framer.com/motion/) (v12.4.11) – Smooth animations.  
+- [SweetAlert2](https://sweetalert2.github.io/) (v11.17.2) – Notifications & alerts.  
+- [React Date Picker](https://www.npmjs.com/package/react-date-picker) (v11.0.0) – Date selection.  
+- [Swiper](https://swiperjs.com/) (v11.2.4) – Carousels & sliders.  
+
+---
+
+## 👨‍💻 Development  
+
+### **Run in Development Mode**  
+```sh  
+npm run dev  
+```  
+
+### **Build for Production**  
+```sh  
+npm run build  
+```  
+
+### **Start the Production Server**  
+```sh  
+npm run start  
+```  
+
+### **Linting**  
+```sh  
+npm run lint  
 ```
 
-### Build for Production
-```sh
-npm run build
-```
+## 📜 License  
 
-### Start the Production Server
-```sh
-npm run start
-```
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT License**.  
 
 ---
 
