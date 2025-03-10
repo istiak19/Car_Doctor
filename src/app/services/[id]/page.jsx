@@ -1,5 +1,3 @@
-import dbConnect, { collectionNames } from "@/lib/dbConnect";
-import { ObjectId } from "mongodb";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFileAlt } from "react-icons/fa";
@@ -14,8 +12,11 @@ export const metadata = {
 
 const ServiceDetails = async ({ params }) => {
     const { id } = await params;
-    const data = await dbConnect(collectionNames.test_services).findOne({ _id: new ObjectId(id) });
-    const services = await dbConnect(collectionNames.test_services).find().toArray();
+    const res = await fetch(`http://localhost:3000/api/service/${id}`)
+    const data = await res.json();
+    // All service loading
+    const resService = await fetch('http://localhost:3000/api/service')
+    const services = await resService.json();
 
     return (
         <div className="w-11/12 mx-auto">
