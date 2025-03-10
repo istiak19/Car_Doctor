@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const TeamSlide = ({ image }) => {
     return (
-        <div className="card hover:shadow-xl p-3 border border-red-500 mb-10 w-full sm:w-80 md:w-96">
+        <div className="card hover:shadow-xl p-3 border border-red-500 mb-10 w-full">
             <figure className="w-full">
                 <Image
                     src={image}

@@ -15,8 +15,7 @@ import image4 from '../../../public//assets/images/team/1.jpg'
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 const Team = () => {
-
-
+    
     return (
         <div className='w-11/12 mx-auto mb-10'>
             <SectionTitle subTitle={'Team'} title={"Meet Our Team"} description={"The majority have suffered alteration in some form, by injected humour, or randomized words which don't look even slightly believable. "}></SectionTitle>
