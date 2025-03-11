@@ -18,11 +18,16 @@ const MyCheckout = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        console.log(id)
+        const res = await fetch(`http://localhost:3000/api/checkout/${id}`, {
+            method: "DELETE",
+        });
+
+        const data = await res.json();
+        console.log(data);
     }
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto py-10">
             <Table>
                 <TableHeader>
                     <TableRow>

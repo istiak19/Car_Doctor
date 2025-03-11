@@ -73,7 +73,7 @@ const Navbar = () => {
                         <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
                     )
                 }
-                <Link href='/myCheckout' className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</Link>
+                <Link href='/checkout' className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</Link>
             </div>
         </div>
     );
