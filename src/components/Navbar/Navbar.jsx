@@ -6,6 +6,7 @@ import { useSession, signOut } from 'next-auth/react';
 
 const Navbar = () => {
     const { data: session, status } = useSession();
+    console.log(session)
 
     const links = <>
         <li><Link href='/'>Home</Link></li>
@@ -72,7 +73,7 @@ const Navbar = () => {
                         <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
                     )
                 }
-                <a className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</a>
+                <Link href='/myCheckout' className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</Link>
             </div>
         </div>
     );

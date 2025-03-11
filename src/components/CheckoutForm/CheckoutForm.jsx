@@ -6,8 +6,10 @@ import { useSession } from "next-auth/react";
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const CheckoutForm = ({ data }) => {
+    const router = useRouter();
     const { data: session } = useSession();
     const [value, setValue] = useState(new Date());
 
@@ -22,7 +24,8 @@ const CheckoutForm = ({ data }) => {
         const serviceId = data?._id;
         const serviceName = data?.title;
         const checkInfo = { serviceId, serviceName, customerName: name, phone, email, message, date: value, price };
-        const res = await fetch('http://localhost:3000/api/service', {
+
+        const res = await fetch('http://localhost:3000/api/checkout', {
             method: 'POST',
             body: JSON.stringify(checkInfo)
         });
@@ -36,6 +39,7 @@ const CheckoutForm = ({ data }) => {
                 showConfirmButton: false,
                 timer: 1500
             });
+            router.push('/services')
         }
     };
 

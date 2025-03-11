@@ -1,28 +1,17 @@
-import CredentialsProvider from "next-auth/providers/credentials"
+import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
-import { loginUser } from "@/app/actions/auth/loginUser"
 import dbConnect, { collectionNames } from "./dbConnect";
+import { loginUser } from "@/app/actions/auth/loginUser";
 
 export const authOptions = {
-    // Configure one or more authentication providers
     providers: [
         CredentialsProvider({
-            name: 'Credentials',
-            credentials: {
-                email: {},
-                password: {}
-            },
+            name: "Credentials",
+            credentials: { email: {}, password: {} },
             async authorize(credentials, req) {
                 const user = await loginUser(credentials);
-                // console.log(user)
-
-                // If no error and we have user data, return it
-                if (user) {
-                    return user
-                }
-                // Return null if user data could not be retrieved
-                return null
+                return user || null;
             }
         }),
         GoogleProvider({
@@ -35,9 +24,22 @@ export const authOptions = {
         })
     ],
     pages: {
-        signIn: '/login'
+        signIn: "/login"
+    },
+    session: {
+        strategy: "jwt",
     },
     callbacks: {
+        async session({ session, token }) {
+            session.user.id = token.id;
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.id = user.id;
+            }
+            return token;
+        },
         async signIn({ user, account, profile, email, credentials }) {
             // console.log('callback--->', { user, account, profile, email, credentials })
             if (account) {
@@ -53,4 +55,6 @@ export const authOptions = {
             return true
         },
     },
+    secret: process.env.NEXTAUTH_SECRET,
+    debug: true
 };

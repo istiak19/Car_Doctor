@@ -36,7 +36,7 @@ const Login = () => {
     });
 
     const onSubmit = async (data) => {
-        console.log("Submitted Data:", data);
+        // console.log("Submitted Data:", data);
         try {
             const result = await signIn('credentials', {
                 redirect: false,
@@ -57,7 +57,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                console.log("Login Successful:", result);
+                // console.log("Login Successful:", result);
                 router.push('/');
             }
         }
