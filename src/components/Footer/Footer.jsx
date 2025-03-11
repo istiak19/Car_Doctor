@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import logoPic from "../../../public/assets/logo.svg";
@@ -34,7 +35,8 @@ const Footer = () => {
           <h6 className="text-lg font-semibold mb-4">Company</h6>
           <ul className="space-y-2">
             <li><a className="text-gray-400 hover:text-white transition duration-300 text-sm" href="#">Why CarDoctor</a></li>
-            <li><a className="text-gray-400 hover:text-white transition duration-300 text-sm" href="#">About Us</a></li>
+            <li><a className="text-gray-400 hover:text-white transition duration-300 text-sm" href="/about">About Us</a></li>
+            <li><a className="text-gray-400 hover:text-white transition duration-300 text-sm" href="/blog">Blog</a></li>
           </ul>
         </div>
         {/* Newsletter Subscription */}
@@ -42,9 +44,9 @@ const Footer = () => {
           <h6 className="text-lg font-semibold mb-4">Newsletter</h6>
           <p className="text-sm text-gray-400 mb-3">Subscribe to get the latest car maintenance tips!</p>
           <div className="flex">
-            <input 
-              type="email" 
-              placeholder="Enter email" 
+            <input
+              type="email"
+              placeholder="Enter email"
               className="w-full p-2 rounded-l-md text-black"
             />
             <button className="bg-red-500 px-4 text-white rounded-r-md hover:bg-red-600 transition duration-300">
