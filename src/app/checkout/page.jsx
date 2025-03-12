@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { format } from "date-fns";
-import { TiDelete } from "react-icons/ti";
+import CheckoutDelete from "@/components/CheckoutDelete/CheckoutDelete";
 
 const MyCheckout = () => {
     const [checkInfo, setCheckInfo] = useState([]);
@@ -16,15 +16,6 @@ const MyCheckout = () => {
         }
         fetchData();
     }, []);
-
-    const handleDelete = async (id) => {
-        const res = await fetch(`http://localhost:3000/api/checkout/${id}`, {
-            method: "DELETE",
-        });
-
-        const data = await res.json();
-        console.log(data);
-    }
 
     return (
         <div className="w-11/12 mx-auto py-10">
@@ -48,9 +39,7 @@ const MyCheckout = () => {
                             <TableCell>{info?.date ? format(new Date(info.date), "dd MMM yyyy") : "N/A"}</TableCell>
                             <TableCell>${info?.price}</TableCell>
                             <TableCell className="text-right text-4xl">
-                                <button onClick={() => handleDelete(info?._id)}>
-                                    <TiDelete />
-                                </button>
+                                <CheckoutDelete info={info}></CheckoutDelete>
                             </TableCell>
                         </TableRow>)
                     }
