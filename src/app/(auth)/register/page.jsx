@@ -25,7 +25,10 @@ const formSchema = z.object({
     password: z.string().min(6, {
         message: "Password must be at least 6 characters.",
     }),
+    photo: z.instanceof(File).optional(),
 });
+
+const image_key = process.env.NEXT_PUBLIC_IMAGE_KEY;
 
 const Register = () => {
     const router = useRouter();
@@ -39,9 +42,35 @@ const Register = () => {
     });
 
     const onSubmit = async (data) => {
+        if (!data.photo) {
+            console.error("No photo selected!");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("image", data.photo);
+        // console.log("FormData:", [...formData.entries()][0][1].name);
+        const response = await fetch(`https://api.imgbb.com/1/upload?key=${image_key}`, {
+            method: "POST",
+            body: formData,
+        });
+
+        if (!response.ok) {
+            throw new Error("Upload failed!");
+        }
+
+        const result = await response.json();
+        const userInfo = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            image: result.data.url
+        };
+
+        console.log(userInfo)
         try {
             // console.log("Submitted Data:", data);
-            const response = await registerUser(data);
+            const response = await registerUser(userInfo);
             if (response.error) {
                 // alert("⚠️ " + response.error);
             } else {
@@ -99,6 +128,24 @@ const Register = () => {
                                         <FormLabel>Email</FormLabel>
                                         <FormControl>
                                             <Input placeholder="Your email" type="email" {...field} />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="photo"
+                                render={({ field: { onChange, ref, ...rest } }) => (
+                                    <FormItem>
+                                        <FormLabel>Upload Photo</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={(e) => onChange(e.target.files?.[0] || undefined)}
+                                                ref={ref}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>

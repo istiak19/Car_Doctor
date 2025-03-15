@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import Image from 'next/image';
 import { signIn } from "next-auth/react"
 import loginPic from '../../../../public/assets/images/login/login.svg';

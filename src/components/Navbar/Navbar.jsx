@@ -6,7 +6,6 @@ import { useSession, signOut } from 'next-auth/react';
 
 const Navbar = () => {
     const { data: session, status } = useSession();
-    console.log(session)
 
     const links = <>
         <li><Link href='/'>Home</Link></li>
@@ -61,10 +60,10 @@ const Navbar = () => {
                         <div className='flex justify-center items-center'>
                             <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                                 <Image
-                                    src={session?.user?.image || "/default-avatar.png"}
-                                    alt="User Avatar"
-                                    width={40}
-                                    height={40}
+                                    src={session?.user?.image}
+                                    alt=""
+                                    width={50}
+                                    height={50}
                                     className="rounded-full"
                                 />
                             </div>
