@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { signIn } from "next-auth/react"
 import loginPic from '../../../../public/assets/images/login/login.svg';
+import backgroundPic from '../../../../public/assets/images/login/background.jpg';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -68,56 +69,62 @@ const Login = () => {
     };
 
     return (
-        <div className="w-3/4 mx-auto py-10">
-            <div className="hero-content flex-col lg:flex-row">
-                <div className="w-full">
-                    <Image
-                        src={loginPic}
-                        alt='Login Picture'
-                        width={400}
-                        height={400}
-                        className="rounded-lg"
-                        priority
-                    />
-                </div>
-                <div className="w-full max-w-xl">
-                    <h2 className='mb-5 font-bold text-center text-3xl'>Sign In</h2>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                            <FormField
-                                control={form.control}
-                                name="email"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Email</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Your email" type="email" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <FormField
-                                control={form.control}
-                                name="password"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Password</FormLabel>
-                                        <FormControl>
-                                            <Input placeholder="Your password" type="password" {...field} />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <Button variant="custom" type="submit">Sign In</Button>
-                        </form>
-                    </Form>
-                    <p className='text-center py-5 font-medium'>Or Sign Up with</p>
-                    <div className='py-5'>
-                        <SocialLogin></SocialLogin>
+        <div className="w-full min-h-screen flex items-center justify-center bg-cover bg-center"
+            style={{
+                backgroundImage: "url('/assets/images/login/background.jpg')",
+                backgroundAttachment: "fixed",
+            }}>
+            <div className="w-3/4 mx-auto py-10">
+                <div className="hero-content flex-col lg:flex-row">
+                    <div className="w-full">
+                        <Image
+                            src={loginPic}
+                            alt='Login Picture'
+                            width={400}
+                            height={400}
+                            className="rounded-lg"
+                            priority
+                        />
                     </div>
-                    <p className='text-gray-600 text-xs text-center'>Have an account? <span className='text-red-400 hover:underline'><Link href='/register'>Sign Up</Link></span></p>
+                    <div className="w-full max-w-xl">
+                        <h2 className='mb-5 font-bold text-center text-3xl'>Sign In</h2>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Email</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your email" type="email" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="password"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>Password</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder="Your password" type="password" {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
+                                <Button variant="custom" type="submit">Sign In</Button>
+                            </form>
+                        </Form>
+                        <p className='text-center py-5 font-medium'>Or Sign Up with</p>
+                        <div className='py-5'>
+                            <SocialLogin></SocialLogin>
+                        </div>
+                        <p className='text-gray-600 text-xs text-center'>Have an account? <span className='text-red-400 hover:underline'><Link href='/register'>Sign Up</Link></span></p>
+                    </div>
                 </div>
             </div>
         </div>
