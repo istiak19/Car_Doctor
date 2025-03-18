@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { format } from "date-fns";
 import CheckoutDelete from "@/components/CheckoutDelete/CheckoutDelete";
 
@@ -39,7 +39,7 @@ const MyCheckout = () => {
                             <TableCell>{info?.date ? format(new Date(info.date), "dd MMM yyyy") : "N/A"}</TableCell>
                             <TableCell>${info?.price}</TableCell>
                             <TableCell className="text-right text-4xl">
-                                <CheckoutDelete info={info}></CheckoutDelete>
+                                <CheckoutDelete setCheckInfo={setCheckInfo} info={info}></CheckoutDelete>
                             </TableCell>
                         </TableRow>)
                     }

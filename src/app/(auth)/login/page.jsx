@@ -69,7 +69,7 @@ const Login = () => {
     };
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center bg-cover bg-center"
+        <div className="w-full flex items-center justify-center bg-cover bg-center"
             style={{
                 backgroundImage: "url('/assets/images/login/background.jpg')",
                 backgroundAttachment: "fixed",
