@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import logoPic from '../../../public/assets//logo.svg';
 import Link from 'next/link';
+import profile from '../../../public/assets/profile.png';
 import { useSession, signOut } from 'next-auth/react';
 
 const Navbar = () => {
@@ -61,19 +62,30 @@ const Navbar = () => {
                             <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
                                 <Image
                                     src={session?.user?.image}
-                                    alt=""
+                                    alt="User Image"
                                     width={50}
                                     height={50}
                                     className="rounded-full"
                                 />
                             </div>
                             <button onClick={() => signOut()} className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Logout</button>
+                            <Link href='/checkout' className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</Link>
                         </div>
                     ) : (
-                        <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
+                        <div className='flex justify-center items-center'>
+                            <div className="w-10 h-10 rounded-full overflow-hidden mr-3">
+                                <Image
+                                    src={profile}
+                                    alt="User Image"
+                                    width={50}
+                                    height={50}
+                                    className="rounded-full"
+                                />
+                            </div>
+                            <Link href='/login' className='btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500 mr-3'>Login</Link>
+                        </div>
                     )
                 }
-                <Link href='/checkout' className="btn text-red-500 border-2 hover:bg-red-500 hover:text-white border-red-500">Appointment</Link>
             </div>
         </div>
     );
