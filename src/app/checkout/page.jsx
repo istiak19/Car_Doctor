@@ -1,9 +1,11 @@
 "use client";
 
+import { FaEdit } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { format } from "date-fns";
 import CheckoutDelete from "@/components/CheckoutDelete/CheckoutDelete";
+import Link from "next/link";
 
 const MyCheckout = () => {
     const [checkInfo, setCheckInfo] = useState([]);
@@ -32,16 +34,25 @@ const MyCheckout = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        checkInfo.map(info => <TableRow key={info._id}>
-                            <TableCell>#</TableCell>
-                            <TableCell className="font-medium">{info?.serviceName}</TableCell>
-                            <TableCell>{info?.message}</TableCell>
-                            <TableCell>{info?.date ? format(new Date(info.date), "dd MMM yyyy") : "N/A"}</TableCell>
-                            <TableCell>${info?.price}</TableCell>
-                            <TableCell className="text-right text-4xl">
-                                <CheckoutDelete setCheckInfo={setCheckInfo} info={info}></CheckoutDelete>
-                            </TableCell>
-                        </TableRow>)
+                        checkInfo.map((info, idx) => (
+                            <TableRow key={info._id}>
+                                <TableCell>{idx + 1}</TableCell>
+                                <TableCell className="font-medium">{info?.serviceName}</TableCell>
+                                <TableCell>{info?.message}</TableCell>
+                                <TableCell>${info?.price}</TableCell>
+                                <TableCell>{info?.date ? format(new Date(info.date), "dd MMM yyyy") : "N/A"}</TableCell>
+                                <TableCell className="text-right">
+                                    <div className="flex gap-3 justify-end items-center">
+                                        {/* Edit Button */}
+                                        <Link href={`/checkoutUpdate/${info?._id}`}>
+                                            <FaEdit className="text-lg" />
+                                        </Link>
+                                        {/* Delete Button */}
+                                        <CheckoutDelete setCheckInfo={setCheckInfo} info={info} />
+                                    </div>
+                                </TableCell>
+                            </TableRow>
+                        ))
                     }
                 </TableBody>
             </Table>

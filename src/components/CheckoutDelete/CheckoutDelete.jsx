@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 const checkoutDelete = ({ info, setCheckInfo }) => {
     const handleDelete = async (id) => {
-        console.log(id)
+        // console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -34,7 +34,7 @@ const checkoutDelete = ({ info, setCheckInfo }) => {
     return (
         <div>
             <button onClick={() => handleDelete(info?._id)}>
-                <TiDelete />
+                <TiDelete className="text-2xl"/>
             </button>
         </div>
     );
