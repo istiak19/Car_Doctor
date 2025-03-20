@@ -4,17 +4,20 @@ import logoPic from '../../../public/assets//logo.svg';
 import Link from 'next/link';
 import profile from '../../../public/assets/profile.png';
 import { useSession, signOut } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
     const { data: session, status } = useSession();
+    const pathname = usePathname();
 
     const links = <>
-        <li><Link href='/'>Home</Link></li>
-        <li><Link href='/about'>About</Link></li>
-        <li><Link href='/services'>Services</Link></li>
-        <li><Link href='/addService'>Add Service</Link></li>
-        <li><Link href='/blog'>Blog</Link></li>
-        <li><Link href='/contact'>Contact</Link></li>
+        {["/", "/about", "/services", "/addService", "/blog", "/contact"].map((route, index) => (
+            <li key={index}>
+                <Link href={route} className={`${pathname === route && "text-red-500 font-bold"} hover:text-red-500`}>
+                    {route === "/" ? "Home" : route.replace("/", "").charAt(0).toUpperCase() + route.slice(2)}
+                </Link>
+            </li>
+        ))}
     </>;
 
     return (
