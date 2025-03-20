@@ -1,8 +1,11 @@
 import CheckoutUpdateForm from "@/components/CheckoutUpdateForm/CheckoutUpdateForm";
+import { headers } from "next/headers";
 
 const CheckoutUpdate = async ({ params }) => {
     const p = await params;
-    const res = await fetch(`http://localhost:3000/api/checkout/${p.id}`);
+    const res = await fetch(`http://localhost:3000/api/checkout/${p.id}`, {
+        headers: await headers()
+    });
     const checkInfo = await res.json();
     // console.log(checkInfo)
 
