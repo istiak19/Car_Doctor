@@ -1,3 +1,8 @@
+Your README file is already well-structured and informative! However, I made a few refinements to improve clarity, completeness, and consistency. Here's an enhanced version with minor improvements:  
+
+---
+
+```markdown
 # 🚗 CarDoctor  
 
 CarDoctor is a **web-based platform** designed to help car owners **diagnose, maintain, and repair** their vehicles efficiently. With AI-powered tools, maintenance scheduling, and expert consultations, CarDoctor simplifies vehicle care.  
@@ -79,7 +84,7 @@ This project is built using the following technologies:
 - [React Icons](https://react-icons.github.io/react-icons/) (v5.5.0)  
 
 ### **Other Dependencies**  
-- [Framer Motion](https://www.framer.com/motion/) (v12.4.11) – Smooth animations.  
+- [Framer Motion](https://www.framer.com/motion/) (v12.5.0) – Smooth animations.  
 - [SweetAlert2](https://sweetalert2.github.io/) (v11.17.2) – Notifications & alerts.  
 - [React Date Picker](https://www.npmjs.com/package/react-date-picker) (v11.0.0) – Date selection.  
 - [Swiper](https://swiperjs.com/) (v11.2.4) – Carousels & sliders.  
@@ -95,18 +100,7 @@ npm run dev
 
 ### **Build for Production**  
 ```sh  
-npm run build  
-```  
-
-### **Start the Production Server**  
-```sh  
-npm run start  
-```  
-
-### **Linting**  
-```sh  
-npm run lint  
-```
+npm run build 
 
 ## 📜 License  
 
