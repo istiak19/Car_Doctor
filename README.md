@@ -1,8 +1,3 @@
-Your README file is already well-structured and informative! However, I made a few refinements to improve clarity, completeness, and consistency. Here's an enhanced version with minor improvements:  
-
----
-
-```markdown
 # 🚗 CarDoctor  
 
 CarDoctor is a **web-based platform** designed to help car owners **diagnose, maintain, and repair** their vehicles efficiently. With AI-powered tools, maintenance scheduling, and expert consultations, CarDoctor simplifies vehicle care.  
