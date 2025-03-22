@@ -95,12 +95,4 @@ npm run dev
 
 ### **Build for Production**  
 ```sh  
-npm run build 
-
-## 📜 License  
-
-This project is licensed under the **MIT License**.  
-
----
-
-Made with ❤️ by [Istiak Ahamed](https://github.com/istiak19)
+npm run build
