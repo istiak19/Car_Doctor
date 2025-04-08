@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { getToken } from "next-auth/jwt"
 
 export async function middleware(req) {
-    const token = await getToken({ req})
+    const token = await getToken({ req })
 
     if (token) {
         return NextResponse.next()
@@ -13,6 +13,7 @@ export async function middleware(req) {
 
 export const config = {
     matcher: [
+        '/addService',
         '/checkout',
         '/checkout/:path*',
         '/checkoutUpdate/:path*'

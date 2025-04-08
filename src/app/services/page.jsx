@@ -9,7 +9,7 @@ export const metadata = {
 
 const fetchServices = async () => {
     try {
-        const res = await fetch('http://localhost:3000/api/service', { cache: "no-store" });
+        const res = await fetch('https://car-doctor-hazel.vercel.app/api/service', { cache: "no-store" });
         if (!res.ok) {
             throw new Error(`Failed to fetch data: ${res.status}`);
         }

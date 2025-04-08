@@ -19,7 +19,7 @@ const checkoutDelete = ({ info, setCheckInfo }) => {
                     text: "Your Checkout has been deleted.",
                     icon: "success"
                 });
-                const res = await fetch(`http://localhost:3000/api/checkout/${id}`, {
+                const res = await fetch(`https://car-doctor-hazel.vercel.app/api/checkout/${id}`, {
                     method: "DELETE"
                 });
                 const data = await res.json();

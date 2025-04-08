@@ -12,7 +12,7 @@ const MyCheckout = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch("http://localhost:3000/api/checkout");
+            const res = await fetch("https://car-doctor-hazel.vercel.app/api/checkout");
             const data = await res.json();
             setCheckInfo(data);
         }

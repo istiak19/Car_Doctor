@@ -27,7 +27,7 @@ const CheckoutUpdateForm = ({ checkInfo }) => {
 
         // console.log(updatedCheckInfo);
 
-        const res = await fetch(`http://localhost:3000/api/checkout/${checkInfo._id}`, {
+        const res = await fetch(`https://car-doctor-hazel.vercel.app/api/checkout/${checkInfo._id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json"

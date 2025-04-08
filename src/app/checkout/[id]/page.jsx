@@ -7,7 +7,7 @@ export const metadata = {
 
 const Checkout = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(`http://localhost:3000/api/service/${id}`)
+    const res = await fetch(`https://car-doctor-hazel.vercel.app/api/service/${id}`)
     const data = await res.json();
 
     return (

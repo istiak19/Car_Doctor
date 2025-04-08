@@ -12,10 +12,10 @@ export const metadata = {
 
 const ServiceDetails = async ({ params }) => {
     const { id } = await params;
-    const res = await fetch(`http://localhost:3000/api/service/${id}`)
+    const res = await fetch(`https://car-doctor-hazel.vercel.app/api/service/${id}`)
     const data = await res.json();
     // All service loading
-    const resService = await fetch('http://localhost:3000/api/service')
+    const resService = await fetch('https://car-doctor-hazel.vercel.app/api/service')
     const services = await resService.json();
 
     return (

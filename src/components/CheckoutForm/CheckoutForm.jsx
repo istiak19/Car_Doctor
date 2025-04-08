@@ -25,7 +25,7 @@ const CheckoutForm = ({ data }) => {
         const serviceName = data?.title;
         const checkInfo = { serviceId, serviceName, customerName: name, phone, email, message, date: value, price };
 
-        const res = await fetch('http://localhost:3000/api/checkout', {
+        const res = await fetch('https://car-doctor-hazel.vercel.app/api/checkout', {
             method: 'POST',
             body: JSON.stringify(checkInfo)
         });
