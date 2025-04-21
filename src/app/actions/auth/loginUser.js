@@ -3,9 +3,11 @@
 import dbConnect, { collectionNames } from "@/lib/dbConnect";
 import { compare } from "bcryptjs";
 
+const db = await dbConnect();
+
 export const loginUser = async (payload) => {
     const { email, password } = payload;
-    const userCollection = await dbConnect(collectionNames.test_users);
+    const userCollection = await db.collection(collectionNames.usersCollection);
     const user = await userCollection.findOne({ email });
     if (!user) return null;
 

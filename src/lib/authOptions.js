@@ -24,37 +24,58 @@ export const authOptions = {
         })
     ],
     pages: {
-        signIn: "/login"
+        signIn: "/login",
     },
     session: {
         strategy: "jwt",
     },
     callbacks: {
-        async session({ session, token }) {
-            session.user.id = token.id;
-            return session;
-        },
         async jwt({ token, user }) {
             if (user) {
                 token.id = user.id;
+                token.role = user.role;
             }
             return token;
         },
-        async signIn({ user, account, profile, email, credentials }) {
-            // console.log('callback--->', { user, account, profile, email, credentials })
-            if (account) {
-                const { provider, providerAccountId } = account;
-                const { email: user_email, name, image } = user;
-                const userCollection = dbConnect(collectionNames.test_users);
-                const existingUser = await userCollection.findOne({ providerAccountId });
+
+        async session({ session, token }) {
+            if (session.user) {
+                session.user.id = token.id;
+                session.user.role = token.role;
+            }
+            return session;
+        },
+
+        async signIn({ user, account }) {
+            if (account?.provider !== "credentials") {
+                const db = await dbConnect();
+                const usersCollection = db.collection(collectionNames.usersCollection);
+
+                const existingUser = await usersCollection.findOne({
+                    providerAccountId: account.providerAccountId,
+                });
+
                 if (!existingUser) {
-                    const payload = { provider, providerAccountId, email: user_email, name, image };
-                    await userCollection.insertOne(payload);
+                    const newUser = {
+                        provider: account.provider,
+                        providerAccountId: account.providerAccountId,
+                        email: user.email,
+                        name: user.name,
+                        photo: user.image,
+                        role: "servicer",
+                    };
+                    const result = await usersCollection.insertOne(newUser);
+                    user.id = result.insertedId.toString();
+                    user.role = newUser.role;
+                } else {
+                    user.id = existingUser._id.toString();
+                    user.role = existingUser.role || "servicer";
                 }
             }
-            return true
+
+            return true;
         },
     },
     secret: process.env.NEXTAUTH_SECRET,
-    debug: true
+    debug: true,
 };

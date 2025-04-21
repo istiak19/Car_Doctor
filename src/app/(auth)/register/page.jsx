@@ -64,7 +64,8 @@ const Register = () => {
             name: data.name,
             email: data.email,
             password: data.password,
-            image: result.data.url
+            image: result.data.url,
+            role: 'servicer'
         };
 
         console.log(userInfo)

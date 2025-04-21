@@ -6,12 +6,14 @@ import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
+const db = await dbConnect();
+
 export async function GET(req, { params }) {
     try {
         const p = await params;
         const query = { _id: new ObjectId(p.id) };
         const session = await getServerSession(authOptions);
-        const result = await dbConnect(collectionNames.checkout).findOne(query);
+        const result = await db.collection(collectionNames.checkout).findOne(query);
         const isUserOk = session?.user?.email === result?.email;
         if (isUserOk) {
             return NextResponse.json(result);
@@ -29,7 +31,7 @@ export async function PATCH(req, { params }) {
         const p = await params;
         const filter = { _id: new ObjectId(p.id) };
         const session = await getServerSession(authOptions);
-        const singleCheckout = await dbConnect(collectionNames.checkout).findOne(filter);
+        const singleCheckout = await db.collection(collectionNames.checkout).findOne(filter);
         const isUserOk = session?.user?.email === singleCheckout?.email;
         if (isUserOk) {
             const checkInfo = await req.json();
@@ -40,7 +42,7 @@ export async function PATCH(req, { params }) {
                     date: checkInfo.date
                 },
             };
-            const result = await dbConnect(collectionNames.checkout).updateOne(filter, updateDoc, { upsert: true });
+            const result = await db.collection(collectionNames.checkout).updateOne(filter, updateDoc, { upsert: true });
             return NextResponse.json(result);
         }
         else {
@@ -57,11 +59,11 @@ export async function DELETE(req, { params }) {
     const query = { _id: new ObjectId(p.id) };
     const session = await getServerSession(authOptions);
     // console.log('session----delete>', session)
-    const currentCheckout = await dbConnect(collectionNames.checkout).findOne(query);
+    const currentCheckout = await db.collection(collectionNames.checkout).findOne(query);
     // console.log('currentCheckout-----delete>', currentCheckout)
     const isUserOk = session?.user?.email === currentCheckout?.email;
     if (isUserOk) {
-        const result = await dbConnect(collectionNames.checkout).deleteOne(query);
+        const result = await db.collection(collectionNames.checkout).deleteOne(query);
         return NextResponse.json(result);
     }
     else {
