@@ -55,9 +55,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      {/* Footer Bottom */}
+
+      {/* Copyright */}
       <div className="text-center mt-10 text-gray-500 text-sm border-t border-gray-700 pt-4">
-        © {new Date().getFullYear()} CarDoctor. All rights reserved.
+        © {new Date().getFullYear()} <span className="font-semibold text-white">CarDoctor</span>. All rights reserved.
       </div>
     </footer>
   );
